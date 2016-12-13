@@ -200,7 +200,7 @@
 
 program : program2 MYEOF
         {
-	  YYACCEPT
+	  YYACCEPT;
 	}
         ;
 
@@ -1932,7 +1932,7 @@ vclloption : VCLL NODENUMBER
 
 clsoption : CLS NODENUMBER
           {
-	    $$ = new ClsOption($2)
+	    $$ = new ClsOption($2);
 	  }
           |
           {
