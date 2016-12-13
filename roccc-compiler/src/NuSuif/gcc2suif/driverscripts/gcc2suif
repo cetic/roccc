@@ -1,27 +1,23 @@
 #!/bin/sh
 
+# The passed parameters are:
+#   $1 = The Binary Directory where everything is located
+#   $2 = The File to change
 
-CC=@CXXPARSER@
-#LFLAGS="-I$NCIHOME/include"
-LFLAGS="-I$ROCCC_HOME/include"
-CCFLAGS="-c --dump-tree-original-raw -I$ROCCC_LIBRARY_PATH"
-PARSER=@ROCCC_HOME@/bin/parser
+CC=$1/bin/g++
+LFLAGS="-I$1/LocalFiles"
+CCFLAGS="-c --dump-tree-original-raw -I$1/lib"
+PARSER=$1/bin/parser
 SED=sed
 
-#echo "param = $#"
-if [ $# -ne 1 ]; then 
-    echo "USAGE :: $0 <file>"
-    exit 7
-fi
-
-if [ ! -f $1 ]; then
+if [ ! -f $2 ]; then
     echo "[ERROR] $1 is not a regular file"
     exit 6
 fi
 
 # Modified to deal with files in different directories
-input=$1
-justTheBasename=`basename $1`
+input=$2
+justTheBasename=`basename $2`
 prefix_input=${input%.*}
 
 $CC $CCFLAGS $LFLAGS $input
