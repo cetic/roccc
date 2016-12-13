@@ -4,6 +4,7 @@
 #include <sstream>
 #include <fstream>
 #include <cstdlib>
+#include <unistd.h>
 
 using namespace VHDLInterface;
 

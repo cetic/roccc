@@ -27,6 +27,7 @@ DESC
 
 #include <fstream>
 #include <sstream>
+#include <unistd.h>
 
 using namespace llvm ;
 using namespace Database;

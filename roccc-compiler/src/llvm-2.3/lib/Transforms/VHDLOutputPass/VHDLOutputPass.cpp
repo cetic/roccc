@@ -20,6 +20,7 @@
 #include <sstream>
 #include <fstream>
 #include <iomanip>
+#include <unistd.h>
 
 #include "rocccLibrary/passes/InputController.h"
 #include "rocccLibrary/passes/OutputController.h"

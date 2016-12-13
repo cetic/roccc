@@ -18,6 +18,7 @@ are ready.
 
 #include <sstream>
 #include <algorithm>
+#include <unistd.h>
 
 #include "rocccLibrary/DFBasicBlock.h"
 #include "rocccLibrary/GetValueName.h"

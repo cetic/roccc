@@ -15,6 +15,7 @@
 #include <assert.h>
 #include <sstream>
 #include <map>
+#include <unistd.h>
 
 #include "rocccLibrary/SizeInBits.h"
 #include "rocccLibrary/GetValueName.h"

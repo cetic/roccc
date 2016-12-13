@@ -18,6 +18,7 @@ This pass is responsible.
 
 #include <assert.h>
 #include <fstream>
+#include <unistd.h>
 
 namespace llvm
 {
