@@ -1,7 +1,7 @@
 #!/bin/bash
 
-ROCCC_BINARY_DIR="<edit_me>/"
-ROCCC_SOURCE_DIR="<edit_me>/roccc-compiler/"
+ROCCC_BINARY_DIR="/vagrant/roccc/"
+ROCCC_SOURCE_DIR="./roccc-compiler/"
 
 if [ -d "$ROCCC_BINARY_DIR" ];
 then

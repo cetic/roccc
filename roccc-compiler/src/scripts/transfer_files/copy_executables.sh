@@ -1,9 +1,9 @@
 #!/bin/bash
 
-ROCCC_BINARY_DIR="<edit_me>/"
-ROCCC_SOURCE_DIR="<edit_me>/roccc-compiler/"
-GCC_INSTALL_DIR="<edit_me>/gcc-4.0.2-install/"
-LLVM_GCC_INSTALL_DIR="<edit_me>/llvm-gcc4.2-2.3-x86_64-linux-CentOS/"
+ROCCC_BINARY_DIR="/vagrant/roccc/"
+ROCCC_SOURCE_DIR="./roccc-compiler/"
+GCC_INSTALL_DIR="./build/gcc-4.0.2-install/"
+LLVM_GCC_INSTALL_DIR="./build/llvm-gcc4.2-2.3-x86_64-linux-Ubuntu/"
 
 if [ -d "$ROCCC_BINARY_DIR" ];
 then
