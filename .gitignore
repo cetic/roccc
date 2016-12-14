@@ -1,0 +1,10 @@
+*.o
+*.deps
+dependencies
+Release/
+.autotools
+.project
+.cproject
+.settings
+.library_mapping.xml
+/build/

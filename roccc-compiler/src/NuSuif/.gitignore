@@ -1,0 +1,17 @@
+gcc2suif/ir.tab.cc
+gcc2suif/ir.tab.hh
+gcc2suif/lexer.cc
+suif2/Makefile.std
+suif2/nci_setup.sh
+suif2/suif/suif2b/basesuif/basicnodes/basic.cpp
+suif2/suif/suif2b/basesuif/basicnodes/basic.h
+suif2/suif/suif2b/basesuif/basicnodes/basic_factory.h
+suif2/suif/suif2b/basesuif/basicnodes/basic_forwarders.h
+suif2/suif/suif2b/basesuif/cfenodes/cfe.cpp
+suif2/suif/suif2b/basesuif/cfenodes/cfe.h
+suif2/suif/suif2b/basesuif/cfenodes/cfe_factory.h
+suif2/suif/suif2b/basesuif/cfenodes/cfe_forwarders.h
+suif2/suif/suif2b/basesuif/suifnodes/suif.cpp
+suif2/suif/suif2b/basesuif/suifnodes/suif.h
+suif2/suif/suif2b/basesuif/suifnodes/suif_factory.h
+suif2/suif/suif2b/basesuif/suifnodes/suif_forwarders.h
