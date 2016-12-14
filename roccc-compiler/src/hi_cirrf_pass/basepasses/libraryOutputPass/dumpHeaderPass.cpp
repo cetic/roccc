@@ -124,7 +124,12 @@ void DumpHeaderPass::OutputTypeDeclaration(DataType* t)
   ReferenceType* refType = dynamic_cast<ReferenceType*>(t) ;
   if (intType != NULL)
   {
-    hout << "typedef int ROCCC_int" ;
+    if (dynamic_cast<IntegerType*>(t)->get_is_signed())
+    {
+      hout << "typedef int ROCCC_int" ;
+    } else {
+      hout << "typedef unsigned int ROCCC_uint" ;
+    }
   }
   else if (floatType != NULL)
   {
@@ -228,8 +233,13 @@ String DumpHeaderPass::StringType(Type* t)
     if (dynamic_cast<IntegerType*>(t) != NULL)
     {
       std::stringstream convert ; 
-      convert << "ROCCC_int" 
-	      << dynamic_cast<IntegerType*>(t)->get_bit_size().c_int() ;
+      if (dynamic_cast<IntegerType*>(t)->get_is_signed())
+      {
+        convert << "ROCCC_int" ;
+      } else {
+        convert << "ROCCC_uint" ;
+      }
+      convert << dynamic_cast<IntegerType*>(t)->get_bit_size().c_int() ;
       toReturn += convert.str().c_str() ;
     }
     if (dynamic_cast<FloatingPointType*>(t) != NULL)

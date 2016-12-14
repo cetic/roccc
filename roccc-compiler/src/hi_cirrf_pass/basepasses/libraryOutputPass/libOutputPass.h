@@ -38,6 +38,7 @@ class ModuleEntry
 struct LibraryType
 {
   bool isFloat ;
+  bool isSigned ;
   int bitSize ;
 } ;
 

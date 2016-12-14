@@ -507,13 +507,14 @@ void LibraryOutputPass::OutputTypes()
 bool LibraryOutputPass::AlreadyPrinted(DataType* t)
 {
   bool isFloat = (dynamic_cast<FloatingPointType*>(t) != NULL) ;
+  bool isSigned = (dynamic_cast<IntegerType*>(t) != NULL) && (dynamic_cast<IntegerType*>(t))->get_is_signed() ;
   int bitSize = t->get_bit_size().c_int() ;
 
   std::list<LibraryType>::iterator printIter = printedTypes.begin() ;
   while (printIter != printedTypes.end())
   {
     LibraryType current = *printIter ;
-    if (current.isFloat == isFloat && current.bitSize == bitSize)
+    if (current.isFloat == isFloat && current.isSigned == isSigned && current.bitSize == bitSize)
     {
       return true ;
     }
@@ -530,13 +531,21 @@ void LibraryOutputPass::OutputTypeDeclaration(DataType* t)
 
   if (intType != NULL)
   {
-    hout << "typedef int ROCCC_int" ;
+    if (dynamic_cast<IntegerType*>(t)->get_is_signed())
+    {
+      hout << "typedef int ROCCC_int" ;
+      toAdd.isSigned = true;
+    } else {
+      hout << "typedef unsigned int ROCCC_uint" ;
+      toAdd.isSigned = false;
+    }
     toAdd.isFloat = false ;
   }
   else if (floatType != NULL)
   {
     hout << "typedef float ROCCC_float" ;
     toAdd.isFloat = true ;
+    toAdd.isSigned = false;
   }
   else
   {
@@ -661,8 +670,13 @@ String LibraryOutputPass::StringType(Type* t)
     if (dynamic_cast<IntegerType*>(t) != NULL)
     {
       std::stringstream convert ;
-      convert << "ROCCC_int" 
-	      << dynamic_cast<IntegerType*>(t)->get_bit_size().c_int() ;
+      if (dynamic_cast<IntegerType*>(t)->get_is_signed())
+      {
+        convert << "ROCCC_int" ;
+      } else {
+        convert << "ROCCC_uint" ;
+      }
+      convert << dynamic_cast<IntegerType*>(t)->get_bit_size().c_int() ;
       toReturn += convert.str().c_str() ;
     }
     if (dynamic_cast<FloatingPointType*>(t) != NULL)

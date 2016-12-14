@@ -1371,6 +1371,10 @@ String HiCirrfGenerator::StringType(Type* t, bool convertArraysToPointers)
   {
     if (dynamic_cast<IntegerType*>(t) != NULL)
     {
+      if (!dynamic_cast<IntegerType*>(t)->get_is_signed())
+      {
+        toReturn += "unsigned " ;
+      }
       // All integer types are ints with their size specified
       //  by the ROCCCSize function.  Unfortunately some shifts don't work
       //  correctly unless I output long long in some instances.
